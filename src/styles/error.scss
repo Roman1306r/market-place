@@ -1,0 +1,55 @@
+.error {
+    @include flexCenter;
+    text-align: center;
+    height: 100%;
+    flex-direction: column;
+    &__body {
+        padding: calc(var(--index) * 3);
+        display: flex;
+        gap: calc(var(--index) * 5);
+        align-items: center;
+        @media (orientation: portrait) {
+            padding: calc(var(--index) * 13) calc(var(--index) * 3);
+        }
+        &-svg {
+            @media (orientation: portrait) {
+                display: none;
+            }
+        }
+        &-message {
+            text-align: left;
+            @media (orientation: portrait) {
+                text-align: center;
+            }
+            & span {
+                margin: calc(var(--index) * 3) 0;
+                display: inline-flex;
+            }
+            & p {
+                font-size: calc(var(--index) * 1.5);
+                font-weight: 100;
+            }
+            & h2 {
+                font-size: 15em;
+                @media (orientation: portrait) {
+                    font-size: 7em;
+                }
+            }
+        }
+        #Polygon-1 , #Polygon-2 , #Polygon-3 , #Polygon-4 , #Polygon-4, #Polygon-5 {
+            animation: float 1s infinite ease-in-out alternate;
+        }
+        #Polygon-2 {
+            animation-delay: .2s; 
+        }
+        #Polygon-3 {
+            animation-delay: .4s; 
+        }
+        #Polygon-4 {
+            animation-delay: .6s; 
+        }
+        #Polygon-5 {
+            animation-delay: .8s; 
+        }     
+    }     
+}

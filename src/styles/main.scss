@@ -1,0 +1,220 @@
+.main__page {
+    .swiper {
+        width: 100%;
+        min-height: 100%;
+    }
+    &-swiper {
+        .mySwiper {
+            height: 80vh;
+            .swiper-slide-container {
+                @media (max-width: 767px) {
+                    transform: translateX(0) !important;
+                }
+            }
+            @media (orientation: portrait) {
+                height: 70vh;
+            }
+            @media (max-width: 767px) {
+                height: 60vh;
+            }
+        }
+    }
+    &-info {
+        & h2 {
+            font-size: calc(var(--index) * 1.5);
+            font-weight: 600;
+            margin: calc(var(--index) * 2) calc(var(--index) * 3);
+        }
+        &-body {
+            @include flexAlignStart;
+            gap: calc(var(--index) * 5);
+            padding: calc(var(--index) * 3);
+            padding-top: 0;
+            @media (orientation: portrait) {
+                flex-direction: column;
+            }
+            &-picture {
+                flex: 0 1 50%;
+                & img {
+                    max-width: 100%;
+                    border-radius: 5px;
+                }
+            }
+            &-text {
+                flex: 0 1 50%;
+                & h3 {
+                    font-size: calc(var(--index) * 1);
+                    font-weight: 600;
+                    margin-bottom: 10px;
+                    @media (orientation: portrait) {
+                        font-size: calc(var(--index) * 1.5);
+                    }
+                }
+                & p {
+                    margin-bottom: 25px;
+                }
+            }
+        } 
+    }
+    &-login {
+        @include flexSpaceBetween; 
+        background-color: var(--primary-color-black);
+        color: white;
+        border-bottom: 1px solid var(--second-color-dark);
+        padding: calc(var(--index) * 5);
+        gap: calc(var(--index) * 5);
+        @media (orientation: portrait) {
+            flex-direction: column-reverse;
+        }
+        &-info {
+            flex: 0 1 40%;
+            @media (orientation: portrait) {
+                text-align: center;
+            }
+            & h2 {
+                font-weight: 600;
+                font-size: calc(var(--index) * 2);
+                margin-bottom: 20px;
+                @media (orientation: portrait) {
+                    margin-bottom: 50px;
+                }
+            }
+            & p {
+                margin-bottom: 70px;
+            }
+        }
+        &-picture {
+            flex: 0 1 60%;
+            @media (orientation: portrait) {
+                @include flexCenter;
+            }
+            & img {
+                max-width: 100%;
+                @media (orientation: portrait) {
+                    max-width: 75%;
+                }
+            }
+        }
+    }
+    .swiper-slide {
+        width: 100%;
+        position: relative;
+        height: 100%;
+        & img {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            filter: blur(7px);
+            z-index: 1;
+            object-fit: cover;
+        }
+        &-container {
+            height: 100%;
+            width: 45%;
+            z-index: 2;
+            padding: calc(var(--index) * 2);
+            @include flexAlignStart;
+            flex-direction: column;
+            position: absolute;
+            @media (max-width: 767px) {
+                width: 30%;
+                justify-content: flex-end;
+                padding-bottom: 50px;
+            }
+            & .link {
+                @media (max-width: 767px) {
+                    white-space: nowrap;
+                    font-size: calc(var(--index) * 1.3);
+                }
+            }
+            & h1 {
+                font-weight: 600;
+                font-size: calc(var(--index) * 3.5);
+                margin-bottom: calc(var(--index) * 1);
+                @media (max-width: 767px) {
+                    font-size: calc(var(--index) * 3);
+                }
+            }
+            & h3 {
+                margin-bottom: calc(var(--index) * 1);
+                @media (max-width: 767px) {
+                    display: none;
+                }
+                & span {
+                    font-weight: 400;
+                    font-size: calc(var(--index) * 1);
+                }
+            }
+            & h5 {
+                font-weight: 300;
+                font-size: calc(var(--index) * 0.6);
+                margin-bottom: calc(var(--index) * 1);
+                @media (max-width: 767px) {
+                    display: none;
+                } 
+            }
+        }
+    }
+    
+    &-category {
+        padding: calc(var(--index) * 3);
+        user-select: none;
+        &-top {
+            @include flexSpaceBetween; 
+            margin-bottom: calc(var(--index) * 2);
+            @media (max-width: 767px) {
+                flex-direction: column;
+                gap: 30px;
+                align-items: flex-start;
+                margin-bottom: calc(var(--index) * 4);
+            }
+            & span {
+                @media (max-width: 767px) {
+                    font-size: calc(var(--index) * 1.3);
+                }
+            }
+            & h2 {
+                font-size: calc(var(--index) * 1.5);
+                font-weight: 600;
+            }
+        }
+        .swiper-slide {
+            background-color: var(--second-color-light);
+            min-height: 450px;
+            transition: 0.2s;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            padding: calc(var(--index) * 1);
+            position: relative;
+            @media (max-width: 767px) {
+                min-height: 400px;
+            }
+            & .icon__container {
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                transform: translate(-50%, 0px) !important;
+                & .icon {  
+                    background-color: var(--primary-color-green);
+                    color: white;
+                    border-radius: 50%;
+                }
+            }   
+            & p {
+                writing-mode: vertical-rl;
+                font-weight: 600;
+                pointer-events: none;
+                font-size: calc(var(--index) * 1);
+                @media (max-width: 767px) {
+                    font-size: calc(var(--index) * 1.3);
+                }
+            }
+            &:hover {
+                min-height: 420px;
+            }
+        }
+    }
+}

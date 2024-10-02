@@ -1,0 +1,216 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    @media (max-width: 767px) {
+        overflow-x: hidden;
+    }
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.link {
+    cursor: pointer;
+    @include flexStart; 
+    gap: 20px;
+    font-size: calc(var(--index) * 0.8);
+    @media (orientation: portrait) {
+        gap: 5px;
+    }
+    &:hover {
+        text-decoration: underline;
+        & svg {
+            animation: go 0.5s infinite;
+        }
+    }
+    &:active {
+        & svg {
+            animation-play-state: paused;
+            opacity: 0;
+        }
+    }
+    & svg {
+        transition: 0.3s all;
+        color: var(--primary-color-green);
+        font-size: calc(var(--index) * 1.1);
+    }
+}
+
+.bread {
+    @include flexStart; 
+    gap: 20px;
+    &.clients-bread {
+        margin:calc(var(--index) * 1) calc(var(--index) * 2);
+        @media (orientation: portrait) {
+            flex-wrap: wrap;
+        }
+    }
+    & a {
+        color: var(--primary-color-green);
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.MuiSpeedDial-fab {
+    background-color: var(--primary-color-green) !important;
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 100px;
+    height: 100px;
+    margin: -50px 0 0 -50px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid transparent;
+    border-top-color: var(--primary-color-green);
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 0.5s linear infinite;
+}
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: var(--primary-color-green);
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: var(--primary-color-green);
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+
+
+
+/* drawer */
+.MuiDrawer-paper {
+    padding:  calc(var(--index) * 2) 0;
+    width: 50%;
+    @media (orientation: portrait) {
+        width: 80%;
+    }
+    @media (max-width: 767px) {
+        width: 90%;
+    }
+}
+.drawer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:  0 calc(var(--index) * 2);
+
+    & h2 {
+        font-weight: 600;
+    }
+    .drawer__pagination {
+        @include flexCenter; 
+    }
+    .drawer__info {
+        margin-top: calc(var(--index) * 1);
+    }
+    .drawer__result {
+        margin: calc(var(--index) * 1) 0;
+        flex: 1 1 auto;
+        & .drawer__post {
+            @include flexSpaceBetween; 
+            position: relative;
+            padding-right: calc(var(--index) * 2);
+            padding-left: calc(var(--index) * 0.5);
+            cursor: pointer;
+            margin: calc(var(--index) * 1) 0;
+            transition: 0.3s;
+            gap: 30px;
+            border-left: 5px solid transparent;
+            width: 100%;
+            @media (max-width: 767px) {
+                padding-right: calc(var(--index) * 0);
+            }
+            @media (orientation: portrait) {
+                margin: calc(var(--index) * 2) 0;
+               
+            }
+            &:hover {
+                border-left: 5px solid var(--primary-color-green);
+                & .title {
+                    color: var(--primary-color-green);
+                }
+            }
+            & .title {
+                transition: all 0.2s;
+                flex: 1 1 auto;
+                font-size: calc(var(--index) * 0.7);
+                font-weight: 500;
+                @media (orientation: portrait) {
+                    font-size: calc(var(--index) * 1.1) ;
+                }
+            }
+            & .reactions {
+                flex: 0 0 20%;
+                @include flexCenter; 
+                gap: 10px;
+                & span {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                }
+            }
+            & .delete {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 10px;
+                @media (max-width: 767px) {
+                    display: none;
+                }
+                &:hover {
+                    color: var(--primary-color-green);
+                }
+            }
+        }
+    }
+}
+
+
+.up {
+    position: fixed;
+    left: 50%;
+    top: -50%;
+    transform: translateX(-50%) !important;
+    z-index: 10;
+    background-color: var(--primary-color-green);
+    border-radius: 50%;
+    .buttonUp {
+        color: white;
+    }
+}

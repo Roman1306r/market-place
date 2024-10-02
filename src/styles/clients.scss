@@ -1,0 +1,392 @@
+.clients {
+    display: flex;
+    margin: calc(var(--index) * 1);  
+    transition: all 0.5s ease-in;
+    @media (orientation: portrait) {
+        margin: calc(var(--index) * 1.5) calc(var(--index) * 0);  
+    }
+    &__sidebar {
+        width: 30%;
+        border-right: 1px solid var(--second-color-light);
+        @media (max-width: 767px) {
+            width: 100% !important;
+            margin-top: 40px;
+        }
+        &.hide {
+            @media (max-width: 767px) {
+                display: none;
+            }
+        }
+        &-sort {
+            margin: calc(var(--index) * 1);
+            @include flexSpaceBetween; 
+            gap: 3px;
+            @media (orientation: portrait) {
+                flex-wrap: wrap;
+            }
+            @media (max-width: 767px) {
+                flex-wrap: nowrap;
+            }
+            & button {
+                @include flexCenter;  
+                font-size: calc(var(--index) * 0.6);
+                border-radius: 5px;
+                gap: 3px;
+                width: 100%;
+                padding: calc(var(--index) * 0.1) calc(var(--index) * 0.5);
+                border: 1px solid var(--primary-color-green);
+                transition: all 0.2s;
+                background-color: transparent;
+                @media (orientation: portrait) {
+                    flex: 0 0 100%;
+                    gap: 7px;
+                    padding: calc(var(--index) * 0.5);
+                }
+                @media (max-width: 767px) {
+                    flex: 0 0 25%;
+                    font-size: calc(var(--index) * 1);
+                }
+                &:hover {
+                    background-color: var(--primary-color-green);
+                    color: white;
+                }
+            }
+        }
+        &-pagination {
+            @include flexCenter;  
+        }
+        & h1 {
+            font-size: calc(var(--index) * 1.5);
+            @include flexSpaceBetween; 
+            margin: calc(var(--index) * 1);
+            @media (orientation: portrait) {
+                flex-direction: column;
+                gap: 15px;
+            }
+            @media (max-width: 767px) {
+                flex-direction: row;
+                margin: calc(var(--index) * 2);
+            }
+            & > div {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+            }
+            & a {
+                display: flex;
+                align-items: center;
+                font-weight: 600;
+            }
+            .clients__sidebar-new {
+                cursor: pointer;
+                transition: all 0.2s;
+                &.hide {
+                    opacity: 0.2;
+                    pointer-events: none;
+                }
+                &:hover {
+                    color: var(--primary-color-green);
+                }
+            }
+        }
+        &-container {
+            margin: calc(var(--index) * 1.5) calc(var(--index) * 1);
+            & a.active {
+                & li {
+                    color: var(--primary-color-green);
+                }
+            }
+            & li {
+                cursor: pointer;
+                margin-top: calc(var(--index) * 0.3);
+                padding: calc(var(--index) * 0.7);
+                border-radius: 5px;
+                border-bottom: 1px solid var(--second-color-light);
+                @include flexSpaceBetween; 
+                position: relative;
+                transition: all 0.2s;
+                & h4 {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-weight: 600;
+                    font-size: calc(var(--index) * 0.7); 
+                    @media (max-width: 767px) {
+                        font-size: calc(var(--index) * 1.5); 
+                    }
+                }
+                &:hover {
+                    color: var(--primary-color-green);
+                }
+            }
+        }
+    }
+    &__content {
+        width: 70%;
+        position: relative;
+        padding: calc(var(--index) * 1);
+        @media (orientation: portrait) {
+            padding: calc(var(--index) * 1) calc(var(--index) * 0.2);
+        }
+        @media (max-width: 767px) {
+            padding: calc(var(--index) * 0);
+            padding-left: 10px;
+            width: 100% !important;
+        }
+        .client__info {
+            flex: 1 1 auto;
+            &-tabs {
+                @media (orientation: portrait) {
+                    flex-direction: column;
+                }
+                &-left {
+                    @media (orientation: portrait) {
+                        padding: 0px 50px;
+                    }
+                    @media (max-width: 767px) {
+                        padding: 0px 10px;
+                    }
+                    & .MuiTabs-flexContainer {  
+                        & .MuiButtonBase-root {
+                            @media (orientation: portrait) {
+                                padding: 10px 0;  
+                            }
+                            @media (max-width: 767px) {
+                                align-items: center;
+                            }
+                        }
+                    }
+                    
+                    & * {
+                            @media (orientation: portrait) {
+                                min-height: 100%;
+                            }
+                    } 
+                }
+                &-right {
+                    & * {
+                        @media (max-width: 767px) {
+                            padding: 5px;
+                        }
+                    }
+                    @media (orientation: portrait) {
+                        text-align: center;
+                    }
+                }                
+            }
+            & *.Mui-selected, .MuiTabs-indicator {
+                color: var(--primary-color-green);
+                
+            }
+            & .purchases {
+                position: relative;
+                height: 100%;
+                & .MuiAccordionDetails-root {
+                    & .MuiChip-root {
+                        @media (max-width: 767px) {
+                            flex-wrap: wrap;
+                            height: max-content;
+                            justify-content: flex-start;
+                        }
+                    }
+                }
+                & .MuiAccordionSummary-content {
+                    @media (max-width: 767px) {
+                        flex-wrap: wrap;
+                        gap: 10px;
+                    }
+                }
+                & h2 {
+                    margin-bottom: 30px;
+                }
+                & .progress {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                }
+                .purchases__body {
+                    display: flex;  
+                    & .purchases__products {
+                        & .purchases__product {
+                            @media (max-width: 767px) {
+                                flex-direction: column;
+                            }
+                        }
+                    }
+                }   
+            }
+            .MuiTabs-indicator {
+                background-color: var(--primary-color-green);
+            }
+            & * {
+                font-weight: 600;
+                text-align: left;
+            }
+            & p {
+                margin: calc(var(--index) * 1) 0;
+            }
+            @include boxTabs;         
+        }
+        .client {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                .table {
+                    & .order__number {
+                        color: var(--primary-color-green);
+                        font-size: calc(var(--index) * 0.7);
+                        font-weight: 500;
+                    }
+                }
+                .post__badge {
+                    position: relative;
+                    & .badge {
+                        position: absolute;
+                        right: -10px;
+                        font-weight: 100;
+                    }
+                }
+        }
+        .form__client {
+            padding-top: 30px;
+            @media (orientation: portrait) {
+                padding: 10px;
+            }
+            & h2 {
+                font-size: calc(var(--index) * 1.5);
+                font-weight: 600;
+            }
+            & > p {
+                margin: calc(var(--index) * 1.5) 0;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            & input {
+                font-weight: 400; 
+            }
+            .login__form-container {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 50px;
+                margin-bottom: calc(var(--index) * 1);
+                padding-bottom: calc(var(--index) * 1);
+                justify-content: space-between;
+                border-bottom: 1px solid rgb(214, 214, 214);
+                @media (max-width: 767px) {
+                    flex-direction: column;
+                }
+                & h4 {
+                    flex: 1 1 40%;
+                    display: flex;
+                    color: var(--primary-color-green);
+                    font-weight: 600;
+                    flex-direction: column;
+                    gap: 20px;
+                }
+                & > div {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    flex: 1 1 60%;
+                }
+            }
+            .login__form-submit {
+                display: block;
+                cursor: pointer;
+                background-color: var(--primary-color-green);
+                color:  white;
+                margin-top: calc(var(--index) * 2);
+                transition: all 0.2s;
+                width: 100%;
+                border-radius: 8px;
+                @media (orientation: portrait) {
+                    padding: calc(var(--index) * 2);
+                    font-size: calc(var(--index) * 1.5) !important;
+                }
+                &:hover {
+                   opacity: 0.8;
+                }
+            }
+        }
+    }
+    &__bottom {
+        @include flexStart; 
+        justify-content: flex-end;
+        gap: calc(var(--index) * 0.5);
+        margin-top: calc(var(--index) * 2);  
+    }
+}
+.search {
+    max-width: 80%;
+    margin: calc(var(--index) * 1) auto;
+    @media (orientation: portrait) {
+        max-width: 90%;
+    }
+    @media (max-width: 767px) {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    & .search__header {
+        @include flexSpaceBetween; 
+        gap: calc(var(--index) * 3);
+        margin: calc(var(--index) * 1) auto;
+        & input {
+            width: 100%;
+        }
+    }
+    & .filter__header {
+        margin: calc(var(--index) * 1) auto;
+        border-bottom: 1px solid var(--second-color-dark);
+        & header {
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: transparent;
+            box-shadow: 0 3px 3px 0px var(--second-color-light);
+            & button {
+                font-size: calc(var(--index) * 0.5);
+                color: black;
+                padding: 5px;
+                @media (max-width: 767px) {
+                    font-size: calc(var(--index) * 1);
+                }
+            }
+            & .MuiTabs-indicator {
+                background-color: var(--primary-color-green);
+            }
+            & .MuiBox-root span {
+                @include flexCenter;
+            }
+        }
+    }
+    & .search__body {
+        margin: 20px 0;
+        .search__pagination {
+            @include flexCenter;  
+        }
+        & .not-finded {
+            margin-bottom: calc(var(--index) * 10);
+        }
+        .order__number {
+            margin: 0 20px;
+            color: var(--primary-color-green);
+            font-size: 30px;
+            font-weight: 500;
+        }
+    }
+    .search__settings {
+        @include flexSpaceBetween; 
+        .search-bread {
+            @include flexStart; 
+            gap: 20px;
+            & a {
+                color: var(--primary-color-green);
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+    }
+}

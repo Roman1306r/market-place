@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://video-react.github.io/assets/video-react.css');
+
+
+
+:root {
+  font-family: "Roboto", sans-serif;
+  --primary-color-green: #03A543;
+  --primary-color-black: #1C1C1C;
+  --second-color-light: #F5F5F5;
+  --second-color-dark: #8A8A8A;
+  --s: 1s;
+  --index: calc(1vw + 1vh);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+ul, li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a, button {
+  cursor: pointer;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+html, body {
+  min-height: 100vh;
+  width: 100vw;
+  font-size: 17px;
+  scroll-behavior: smooth;
+}
+

@@ -1,0 +1,92 @@
+@mixin flexCenter {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin flexAlignStart {
+	display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+@mixin flexStart {
+	display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+@mixin flexSpaceBetween {
+	display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+@mixin boxTabs {
+	& .me__address {
+        & div {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: space-between;
+        }
+    }
+    & .me__appearence {
+        & div {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: space-between;
+        }
+    }
+    & .me__company {
+        & div {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: space-between;
+        }
+    }
+    & .me__basic {
+        flex: 0 0 80%;
+        @media (orientation: portrait) {
+            flex: 0 0 70% !important;
+        }
+        & div {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: space-between;
+        }
+        &-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 20px;
+            margin-bottom: 20px;
+            & h2 {
+                & span {
+                    font-size: calc(var(--index) * 0.8);
+                    @media (max-width: 767px) {
+                        font-size: calc(var(--index) * 1);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@import 'styles/basic';
+@import 'styles/header';
+@import 'styles/main';
+@import 'styles/footer';
+@import 'styles/error';
+@import 'styles/about';
+@import 'styles/login';
+@import 'styles/posts';
+@import 'styles/catalog';
+@import 'styles/clients';
+@import 'styles/contacts';
+@import 'styles/delivery';
+@import 'styles/keyframes';
+@import 'styles/basket';
